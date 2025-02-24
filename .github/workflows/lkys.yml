@@ -25,9 +25,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - userName: xisohi
-            repoName: XHTV
-            branchName: lkys
+          - userName: smjcxf
+            repoName: TV
+            branchName: TV
 
     steps:
       - name: Checkout
@@ -68,7 +68,7 @@ jobs:
         if: ${{ env.commit }}
         working-directory: TVBoxOSC
         run: |
-          if [[ "${{ matrix.userName }}" == "xisohi" ]]; then
+          if [[ "${{ matrix.userName }}" == "smjcxf" ]]; then
             sed -i 's/TeamNewPipe/teamnewpipe/g' app/build.gradle
           fi
 
@@ -103,7 +103,7 @@ jobs:
           sed -i '$a\RELEASE_KEY_PASSWORD=xh8621989'         ./gradle.properties
 
       - name: Setup Java
-        if: ${{ env.commit && (matrix.userName == 'xisohi') }}
+        if: ${{ env.commit && (matrix.userName == 'smjcxf') }}
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
